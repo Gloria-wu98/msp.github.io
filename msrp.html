@@ -1,0 +1,1167 @@
+{\rtf1\ansi\ansicpg950\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset136 PingFangTC-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12720\viewh7240\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="zh-TW">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>Gloria
+\f1 \'a6\'d1\'ae\'76\'af\'5a\'af\'c5\'aa\'ba\'a6\'a8\'c1\'5a\'ac\'64\'b8\'df\'a8\'74\'b2\'ce
+\f0 </title>\
+    <script src="https://cdn.tailwindcss.com"></script>\
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">\
+    <style>\
+        body \{\
+            font-family: 'Noto Sans TC', sans-serif;\
+            background-color: #f0f4f8; /* 
+\f1 \'b2\'4c\'c2\'c5\'a6\'c7\'a6\'e2\'ad\'49\'b4\'ba
+\f0  */\
+        \}\
+        .gradient-bg \{\
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); /* 
+\f1 \'ad\'ec\'a9\'6c\'ba\'a5\'bc\'68
+\f0  */\
+        \}\
+        .teacher-info-bg \{\
+            background-color: #8B5CF6; /* 
+\f1 \'b5\'b5\'a6\'e2\'ad\'49\'b4\'ba
+\f0  - Tailwind purple-500 */\
+        \}\
+        .loading \{\
+            display: inline-block;\
+            width: 20px;\
+            height: 20px;\
+            border: 3px solid rgba(255,255,255,.3);\
+            border-radius: 50%;\
+            border-top-color: white;\
+            animation: spin 1s ease-in-out infinite;\
+        \}\
+        @keyframes spin \{\
+            to \{ transform: rotate(360deg); \}\
+        \}\
+        .fade-in \{\
+            animation: fadeIn 0.5s ease-in-out;\
+        \}\
+        @keyframes fadeIn \{\
+            from \{ opacity: 0; transform: translateY(20px); \}\
+            to \{ opacity: 1; transform: translateY(0); \}\
+        \}\
+        .class-badge \{\
+            transition: all 0.2s ease;\
+        \}\
+        .class-badge:hover \{\
+            transform: translateY(-2px);\
+        \}\
+        .class-badge.active \{\
+            box-shadow: 0 0 0 2px #4f46e5; /* 
+\f1 \'bf\'ef\'a9\'77\'af\'5a\'af\'c5\'aa\'ba\'c0\'51\'c2\'c5\'a6\'e2\'b3\'b1\'bc\'76
+\f0  */\
+        \}\
+        /* 
+\f1 \'a6\'db\'ad\'71\'bf\'ef\'be\'dc\'bd\'62\'c0\'59
+\f0  */\
+        select \{\
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");\
+            background-position: right 0.5rem center;\
+            background-repeat: no-repeat;\
+            background-size: 1.5em 1.5em;\
+            padding-right: 2.5rem;\
+            -webkit-appearance: none;\
+            -moz-appearance: none;\
+            appearance: none;\
+        \}\
+        /* 
+\f1 \'aa\'ed\'ae\'e6\'bc\'cb\'a6\'a1
+\f0  */\
+        table th, table td \{\
+            padding: 0.75rem; /* Tailwind p-3 */\
+            text-align: left;\
+            font-size: 0.875rem; /* Tailwind text-sm */\
+        \}\
+        table th \{\
+            background-color: #f3f4f6; /* Tailwind gray-100 */\
+            font-weight: 600; /* Tailwind font-semibold */\
+            color: #374151; /* Tailwind gray-700 */\
+        \}\
+        table td \{\
+            color: #1f2937; /* Tailwind gray-800 */\
+        \}\
+        .table-container \{\
+            max-height: 400px; /* 
+\f1 \'ad\'ad\'a8\'ee\'aa\'ed\'ae\'e6\'b3\'cc\'a4\'6a\'b0\'aa\'ab\'d7\'a1\'41\'b6\'57\'a5\'58\'ab\'68\'ba\'75\'b0\'ca
+\f0  */\
+            overflow-y: auto;\
+        \}\
+        .error-message \{\
+            color: #ef4444; /* Tailwind red-500 */\
+            font-size: 0.875rem; /* text-sm */\
+            margin-top: 0.25rem; /* mt-1 */\
+        \}\
+    </style>\
+</head>\
+<body>\
+    <div class="min-h-screen flex flex-col">\
+        <header class="gradient-bg text-white py-6 shadow-lg">\
+            <div class="container mx-auto px-4">\
+                <h1 class="text-3xl font-bold text-center">Gloria
+\f1 \'a6\'d1\'ae\'76\'af\'5a\'af\'c5\'aa\'ba\'a6\'a8\'c1\'5a\'ac\'64\'b8\'df\'a8\'74\'b2\'ce
+\f0 </h1>\
+            </div>\
+        </header>\
+\
+        <div class="teacher-info-bg text-white py-3 shadow-md">\
+            <div class="container mx-auto px-4 text-center">\
+                <p class="text-lg font-semibold">
+\f1 \'b1\'d0\'ae\'76\'a1\'47
+\f0 Gloria
+\f1 \'a7\'64\'a8\'71\'c4\'f5\'a6\'d1\'ae\'76
+\f0 , Google
+\f1 \'bb\'7b\'c3\'d2\'c1\'bf\'ae\'76
+\f0 , 
+\f1 \'ad\'5e\'a4\'e5\'ad\'dd\'a5\'78\'bb\'79\'b1\'d0\'ae\'76
+\f0 </p>\
+            </div>\
+        </div>\
+\
+        <main class="flex-grow container mx-auto px-4 py-8">\
+            <div class="max-w-4xl mx-auto">\
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">\
+                    <h2 class="text-xl font-semibold mb-4 text-gray-800">
+\f1 \'af\'5a\'af\'c5\'b8\'ea\'ae\'c6\'ba\'de\'b2\'7a
+\f0 </h2>\
+                    <div class="flex flex-wrap gap-3 mb-4" id="classButtons">\
+                    </div>\
+                    <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-3">\
+                        <button type="button" id="importButton" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-6 rounded-md transition duration-300">\
+                            
+\f1 \'b6\'d7\'a4\'4a\'b7\'73\'af\'5a\'af\'c5\'b8\'ea\'ae\'c6
+\f0 \
+                        </button>\
+                        <button type="button" id="manageClassesButton" class="w-full sm:w-auto bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 mt-2 sm:mt-0">\
+                            
+\f1 \'ba\'de\'b2\'7a\'af\'5a\'af\'c5\'b8\'ea\'ae\'c6
+\f0 \
+                        </button>\
+                    </div>\
+                </div>\
+\
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">\
+                    <h2 class="text-xl font-semibold mb-4 text-gray-800">
+\f1 \'bd\'d0\'bf\'ef\'be\'dc\'be\'c7\'a5\'cd\'ac\'64\'b8\'df
+\f0 </h2>\
+                    <form id="searchForm" class="space-y-4">\
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">\
+                            <div>\
+                                <label for="studentId" class="block text-sm font-medium text-gray-700 mb-1">
+\f1 \'be\'c7\'b8\'b9
+\f0 </label>\
+                                <select id="studentId" name="studentId" required\
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">\
+                                    <option value="">
+\f1 \'bd\'d0\'a5\'fd\'bf\'ef\'be\'dc\'af\'5a\'af\'c5
+\f0 </option>\
+                                </select>\
+                            </div>\
+                            <div>\
+                                <label for="studentName" class="block text-sm font-medium text-gray-700 mb-1">
+\f1 \'a9\'6d\'a6\'57
+\f0 </label>\
+                                 <select id="studentName" name="studentName" required\
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">\
+                                    <option value="">
+\f1 \'bd\'d0\'a5\'fd\'bf\'ef\'be\'dc\'af\'5a\'af\'c5
+\f0 </option>\
+                                </select>\
+                            </div>\
+                        </div>\
+                        <div>\
+                            <label for="studentEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>\
+                            <input type="email" id="studentEmail" name="studentEmail" required\
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"\
+                                   placeholder="
+\f1 \'bd\'d0\'bf\'e9\'a4\'4a\'be\'c7\'a5\'cd\'aa\'ba
+\f0 Email">\
+                            <p id="emailError" class="error-message hidden"></p>\
+                        </div>\
+                        <div class="flex justify-center pt-2">\
+                            <button type="submit" id="searchButton" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 flex items-center">\
+                                <span>
+\f1 \'ac\'64\'b8\'df\'a6\'a8\'c1\'5a
+\f0 </span>\
+                                <span id="loadingIcon" class="loading ml-2 hidden"></span>\
+                            </button>\
+                        </div>\
+                    </form>\
+                </div>\
+\
+                <div id="resultsSection" class="hidden fade-in">\
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">\
+                        <div class="mb-4 pb-4 border-b border-gray-200">\
+                            <h2 class="text-2xl font-semibold text-gray-800">
+\f1 \'a6\'a8\'c1\'5a\'ac\'64\'b8\'df\'b5\'b2\'aa\'47
+\f0 </h2>\
+                            <p class="text-sm text-gray-500 mt-1" id="resultClassName">
+\f1 \'af\'5a\'af\'c5\'a1\'47
+\f0 --</p>\
+                        </div>\
+                        <div class="overflow-x-auto table-container">\
+                            <table class="min-w-full divide-y divide-gray-200">\
+                                <thead class="bg-gray-50 sticky top-0">\
+                                    <tr id="resultsTableHeader">\
+                                    </tr>\
+                                </thead>\
+                                <tbody class="bg-white divide-y divide-gray-200" id="resultsTableBody">\
+                                </tbody>\
+                            </table>\
+                        </div>\
+                    </div>\
+                </div>\
+\
+                <div id="noResultsMessage" class="hidden bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center fade-in">\
+                    <svg class="w-12 h-12 text-yellow-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">\
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>\
+                    </svg>\
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">
+\f1 \'ac\'64\'b5\'4c\'b8\'ea\'ae\'c6
+\f0 </h3>\
+                    <p class="text-gray-600">
+\f1 \'a7\'e4\'a4\'a3\'a8\'ec\'b2\'c5\'a6\'58\'aa\'ba\'be\'c7\'a5\'cd\'b8\'ea\'ae\'c6\'a1\'41\'bd\'d0\'bd\'54\'bb\'7b\'a9\'d2\'a6\'b3\'c4\'e6\'a6\'ec\'ac\'4f\'a7\'5f\'a5\'bf\'bd\'54\'a1\'41\'a9\'ce\'bd\'54\'bb\'7b\'a4\'77\'bf\'ef\'be\'dc\'a5\'bf\'bd\'54\'aa\'ba\'af\'5a\'af\'c5\'a1\'43
+\f0 </p>\
+                </div>\
+            </div>\
+        </main>\
+\
+        <footer class="bg-gray-800 text-white py-4 mt-auto">\
+            <div class="container mx-auto px-4 text-center text-sm">\
+                <p>\'a9 2025 
+\f1 \'be\'c7\'a5\'cd\'a6\'a8\'c1\'5a\'ac\'64\'b8\'df\'a8\'74\'b2\'ce
+\f0  | 
+\f1 \'bd\'d0\'a7\'b4\'b5\'bd\'ab\'4f\'ba\'de\'b1\'7a\'aa\'ba\'a6\'a8\'c1\'5a\'b8\'ea\'b0\'54
+\f0 </p>\
+            </div>\
+        </footer>\
+    </div>\
+\
+    <div id="importModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">\
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">\
+            <div class="flex justify-between items-center mb-4">\
+                <h3 class="text-xl font-semibold text-gray-800">
+\f1 \'b6\'d7\'a4\'4a\'af\'5a\'af\'c5\'b8\'ea\'ae\'c6
+\f0 </h3>\
+                <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">\
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>\
+                </button>\
+            </div>\
+            <div class="mb-4">\
+                <label for="className" class="block text-sm font-medium text-gray-700 mb-2">
+\f1 \'af\'5a\'af\'c5\'a6\'57\'ba\'d9
+\f0 </label>\
+                <input type="text" id="className" placeholder="
+\f1 \'a8\'d2\'a6\'70\'a1\'47\'a4\'40\'a6\'7e\'af\'c5\'a8\'54\'a8\'ae\'ac\'ec\'a5\'d2\'af\'5a
+\f0 "\
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">\
+            </div>\
+            <div class="mb-2">\
+                <p class="text-sm text-gray-600">\
+                    
+\f1 \'bd\'d0\'a5\'fd\'b1\'4e\'b1\'7a\'aa\'ba
+\f0  Google 
+\f1 \'b8\'d5\'ba\'e2\'aa\'ed\'b8\'ea\'ae\'c6\'b6\'d7\'a5\'58\'ac\'b0
+\f0  CSV 
+\f1 \'ae\'e6\'a6\'a1\'c0\'c9\'ae\'d7\'a1\'43
+\f0 \
+                </p>\
+                <p class="text-xs text-gray-500 mt-1">\
+                    (
+\f1 \'a6\'62
+\f0  Google 
+\f1 \'b8\'d5\'ba\'e2\'aa\'ed\'a4\'a4\'a1\'47\'c0\'c9\'ae\'d7
+\f0  -> 
+\f1 \'a4\'55\'b8\'fc
+\f0  -> 
+\f1 \'b3\'72\'b8\'b9\'a4\'c0\'b9\'6a\'ad\'c8
+\f0  (.csv))<br>\
+                    CSV 
+\f1 \'c0\'c9\'ae\'d7\'bb\'dd\'a5\'5d\'a7\'74
+\f0  "Email" 
+\f1 \'c4\'e6\'a6\'ec\'a1\'43
+\f0 \
+                </p>\
+            </div>\
+            <div class="mb-4">\
+                <label for="csvFile" class="block text-sm font-medium text-gray-700 mb-2">
+\f1 \'bf\'ef\'be\'dc
+\f0  CSV 
+\f1 \'c0\'c9\'ae\'d7
+\f0 </label>\
+                <input type="file" id="csvFile" accept=".csv"\
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">\
+            </div>\
+            <div class="flex justify-end">\
+                <button id="confirmImportBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition duration-300">\
+                    
+\f1 \'b6\'d7\'a4\'4a\'b8\'ea\'ae\'c6
+\f0 \
+                </button>\
+            </div>\
+        </div>\
+    </div>\
+\
+    <div id="manageClassesModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">\
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">\
+            <div class="flex justify-between items-center mb-4">\
+                <h3 class="text-xl font-semibold text-gray-800">
+\f1 \'ba\'de\'b2\'7a\'af\'5a\'af\'c5\'b8\'ea\'ae\'c6
+\f0 </h3>\
+                <button id="closeManageModalBtn" class="text-gray-500 hover:text-gray-700">\
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>\
+                </button>\
+            </div>\
+            <div class="mb-4">\
+                <p class="text-gray-600 mb-2">
+\f1 \'a4\'77\'b6\'d7\'a4\'4a\'aa\'ba\'af\'5a\'af\'c5\'b8\'ea\'ae\'c6\'a1\'47
+\f0 </p>\
+                <ul id="classesList" class="border border-gray-200 rounded-md divide-y divide-gray-200 max-h-60 overflow-y-auto">\
+                </ul>\
+            </div>\
+            <div class="flex justify-end">\
+                <button id="closeManageBtn" class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-md transition duration-300">\
+                    
+\f1 \'c3\'f6\'b3\'ac
+\f0 \
+                </button>\
+            </div>\
+        </div>\
+    </div>\
+\
+    <script>\
+    // 
+\f1 \'a5\'fe\'b0\'ec\'c5\'dc\'bc\'c6
+\f0 \
+    let classData = \{\};\
+    let currentClass = null;\
+\
+    // DOM 
+\f1 \'a4\'b8\'af\'c0
+\f0 \
+    const searchForm = document.getElementById('searchForm');\
+    const studentIdDropdown = document.getElementById('studentId');\
+    const studentNameDropdown = document.getElementById('studentName');\
+    const studentEmailInput = document.getElementById('studentEmail'); // 
+\f1 \'b7\'73\'bc\'57
+\f0  Email 
+\f1 \'bf\'e9\'a4\'4a\'c4\'e6\'a6\'ec
+\f0 \
+    const emailError = document.getElementById('emailError'); // 
+\f1 \'b7\'73\'bc\'57
+\f0  Email 
+\f1 \'bf\'f9\'bb\'7e\'b0\'54\'ae\'a7\'b0\'cf\'b0\'ec
+\f0 \
+    const searchButton = document.getElementById('searchButton');\
+    const loadingIcon = document.getElementById('loadingIcon');\
+    const importButton = document.getElementById('importButton');\
+    const importModal = document.getElementById('importModal');\
+    const closeModalBtn = document.getElementById('closeModalBtn');\
+    const confirmImportBtn = document.getElementById('confirmImportBtn');\
+    const csvFileInput = document.getElementById('csvFile');\
+    const classNameInput = document.getElementById('className');\
+    const resultsSection = document.getElementById('resultsSection');\
+    const resultsTableHeader = document.getElementById('resultsTableHeader');\
+    const resultsTableBody = document.getElementById('resultsTableBody');\
+    const noResultsMessage = document.getElementById('noResultsMessage');\
+    const classButtons = document.getElementById('classButtons');\
+    const manageClassesButton = document.getElementById('manageClassesButton');\
+    const manageClassesModal = document.getElementById('manageClassesModal');\
+    const closeManageModalBtn = document.getElementById('closeManageModalBtn');\
+    const closeManageBtn = document.getElementById('closeManageBtn');\
+    const classesList = document.getElementById('classesList');\
+    const resultClassNameDisplay = document.getElementById('resultClassName');\
+\
+\
+    // 
+\f1 \'a8\'c6\'a5\'f3\'ba\'ca\'c5\'a5\'be\'b9
+\f0 \
+    searchForm.addEventListener('submit', handleSearch);\
+    importButton.addEventListener('click', openImportModal);\
+    closeModalBtn.addEventListener('click', closeImportModal);\
+    confirmImportBtn.addEventListener('click', importCSV);\
+    manageClassesButton.addEventListener('click', openManageClassesModal);\
+    closeManageModalBtn.addEventListener('click', closeManageClassesModal);\
+    closeManageBtn.addEventListener('click', closeManageClassesModal);\
+    studentIdDropdown.addEventListener('change', syncNameToId);\
+    studentNameDropdown.addEventListener('change', syncIdToName);\
+    studentEmailInput.addEventListener('input', () => \{ // 
+\f1 \'b7\'ed
+\f0  Email 
+\f1 \'bf\'e9\'a4\'4a\'ae\'c9\'a1\'41\'c1\'f4\'c2\'c3\'bf\'f9\'bb\'7e\'b0\'54\'ae\'a7
+\f0 \
+        emailError.classList.add('hidden');\
+        emailError.textContent = '';\
+    \});\
+\
+\
+    // --- UI 
+\f1 \'bb\'b2\'a7\'55\'a8\'e7\'a6\'a1
+\f0  ---\
+    function showAlert(message, type = 'info') \{\
+        alert(message);\
+        console.log(`Alert ($\{type\}): $\{message\}`);\
+    \}\
+\
+    // --- 
+\f1 \'ae\'d6\'a4\'df\'a8\'e7\'a6\'a1
+\f0  ---\
+    function handleSearch(e) \{\
+        e.preventDefault();\
+        const studentId = studentIdDropdown.value;\
+        const studentNameValue = studentNameDropdown.value;\
+        const studentEmail = studentEmailInput.value.trim(); // 
+\f1 \'a8\'fa\'b1\'6f
+\f0  Email 
+\f1 \'a8\'c3\'a5\'68\'b0\'a3\'c0\'59\'a7\'c0\'aa\'c5\'a5\'d5
+\f0 \
+\
+        // 
+\f1 \'b2\'4d\'b0\'a3\'a5\'fd\'ab\'65\'aa\'ba
+\f0  Email 
+\f1 \'bf\'f9\'bb\'7e\'b0\'54\'ae\'a7
+\f0 \
+        emailError.classList.add('hidden');\
+        emailError.textContent = '';\
+\
+        if (!studentId || !studentNameValue) \{\
+            showAlert('
+\f1 \'bd\'d0\'bf\'ef\'be\'dc\'be\'c7\'b8\'b9\'a9\'4d\'a9\'6d\'a6\'57\'a1\'43
+\f0 ', 'error');\
+            return;\
+        \}\
+        if (!studentEmail) \{ // 
+\f1 \'c0\'cb\'ac\'64
+\f0  Email 
+\f1 \'ac\'4f\'a7\'5f\'ac\'b0\'aa\'c5
+\f0 \
+            emailError.textContent = '
+\f1 \'bd\'d0\'bf\'e9\'a4\'4a
+\f0  Email
+\f1 \'a1\'43
+\f0 ';\
+            emailError.classList.remove('hidden');\
+            return;\
+        \}\
+        if (!currentClass) \{\
+            showAlert('
+\f1 \'bd\'d0\'a5\'fd\'bf\'ef\'be\'dc\'af\'5a\'af\'c5\'a1\'43
+\f0 ', 'error');\
+            return;\
+        \}\
+\
+        loadingIcon.classList.remove('hidden');\
+        searchButton.disabled = true;\
+\
+        setTimeout(() => \{\
+            const student = findStudentById(studentId);\
+\
+            if (student && student.name === studentNameValue) \{\
+                // 
+\f1 \'c5\'e7\'c3\'d2
+\f0  Email (
+\f1 \'a4\'a3\'b0\'cf\'a4\'c0\'a4\'6a\'a4\'70\'bc\'67
+\f0 )\
+                if (student.email && student.email.toLowerCase() === studentEmail.toLowerCase()) \{\
+                    displayResults(student);\
+                    resultsSection.classList.remove('hidden');\
+                    noResultsMessage.classList.add('hidden');\
+                \} else \{\
+                    emailError.textContent = 'Email 
+\f1 \'bf\'f9\'bb\'7e\'a9\'ce\'bb\'50\'a9\'d2\'bf\'ef\'be\'c7\'a5\'cd\'a4\'a3\'b2\'c5\'a1\'43
+\f0 ';\
+                    emailError.classList.remove('hidden');\
+                    resultsSection.classList.add('hidden');\
+                    noResultsMessage.classList.remove('hidden'); // 
+\f1 \'c5\'e3\'a5\'dc\'ac\'64\'b5\'4c\'b8\'ea\'ae\'c6\'a1\'41\'a6\'5d\'ac\'b0
+\f0  Email 
+\f1 \'a4\'a3\'b2\'c5
+\f0 \
+                    resultsTableHeader.innerHTML = '';\
+                    resultsTableBody.innerHTML = '';\
+                    resultClassNameDisplay.textContent = '
+\f1 \'af\'5a\'af\'c5\'a1\'47
+\f0 --';\
+                \}\
+            \} else \{\
+                resultsSection.classList.add('hidden');\
+                noResultsMessage.classList.remove('hidden');\
+                resultsTableHeader.innerHTML = '';\
+                resultsTableBody.innerHTML = '';\
+                resultClassNameDisplay.textContent = '
+\f1 \'af\'5a\'af\'c5\'a1\'47
+\f0 --';\
+            \}\
+            loadingIcon.classList.add('hidden');\
+            searchButton.disabled = false;\
+        \}, 800);\
+    \}\
+\
+    function findStudentById(id) \{\
+        if (!currentClass || !classData[currentClass]) return null;\
+        return classData[currentClass].find(student => student.id === id);\
+    \}\
+\
+    function findStudentByName(name) \{\
+        if (!currentClass || !classData[currentClass]) return null;\
+        return classData[currentClass].find(student => student.name === name);\
+    \}\
+\
+    function displayResults(student) \{\
+        resultsTableHeader.innerHTML = '';\
+        resultsTableBody.innerHTML = '';\
+        resultClassNameDisplay.textContent = `
+\f1 \'af\'5a\'af\'c5\'a1\'47
+\f0 $\{currentClass || '--'\}`;\
+\
+        const headers = ["
+\f1 \'ae\'79\'b8\'b9
+\f0 ", "
+\f1 \'a9\'6d\'a6\'57
+\f0 ", "
+\f1 \'be\'c7\'b8\'b9
+\f0 ", "
+\f1 \'bc\'c6\'be\'c7
+\f0 \uc0\u8547 ", "
+\f1 \'a6\'61\'b2\'7a
+\f0 ", "
+\f1 \'c0\'b3\'a5\'ce\'a4\'4f\'be\'c7
+\f0 ", "
+\f1 \'b0\'ea\'bb\'79\'a4\'e5
+\f0 \uc0\u8547 ", "
+\f1 \'ad\'5e\'bb\'79\'a4\'e5
+\f0 \uc0\u8547 ", "
+\f1 \'ae\'e3\'aa\'6f\'a4\'de\'c0\'ba\'ad\'ec\'b2\'7a
+\f0 ", "
+\f1 \'af\'5a\'b1\'c6\'a6\'57
+\f0 ", "
+\f1 \'ac\'ec\'b2\'d5\'b1\'c6\'a6\'57
+\f0 ", "
+\f1 \'ac\'ec\'a6\'7e\'b1\'c6\'a6\'57
+\f0 ", "
+\f1 \'a4\'40\'af\'eb\'c1\'60\'a4\'c0
+\f0 ", "
+\f1 \'a4\'40\'af\'eb\'a5\'ad\'a7\'a1
+\f0 ", "
+\f1 \'a5\'5b\'c5\'76\'a5\'ad\'a7\'a1
+\f0 ", "
+\f1 \'a5\'5b\'c5\'76\'c1\'60\'a4\'c0
+\f0 "];\
+        const dataKeys = ['seatNumber', 'name', 'id', 'math4', 'geography', 'appliedMechanics', 'chinese4', 'english4', 'dieselEnginePrinciples', 'classRank', 'departmentGroupRank', 'departmentYearRank', 'generalTotalScore', 'generalAverageScore', 'weightedAverageScore', 'weightedTotalScore'];\
+\
+        headers.forEach(headerText => \{\
+            const th = document.createElement('th');\
+            th.scope = 'col';\
+            th.className = 'px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider';\
+            th.textContent = headerText;\
+            resultsTableHeader.appendChild(th);\
+        \});\
+\
+        const tr = document.createElement('tr');\
+        dataKeys.forEach(key => \{\
+            const td = document.createElement('td');\
+            td.className = 'px-6 py-4 whitespace-nowrap text-sm text-gray-900';\
+            td.textContent = student[key] || '--';\
+            tr.appendChild(td);\
+        \});\
+        resultsTableBody.appendChild(tr);\
+    \}\
+\
+    // --- 
+\f1 \'bc\'75\'a5\'58\'b5\'f8\'b5\'a1\'ba\'de\'b2\'7a
+\f0  ---\
+    function openImportModal() \{\
+        importModal.classList.remove('hidden');\
+        classNameInput.value = '';\
+        csvFileInput.value = '';\
+    \}\
+\
+    function closeImportModal() \{\
+        importModal.classList.add('hidden');\
+    \}\
+\
+    function openManageClassesModal() \{\
+        updateClassesList();\
+        manageClassesModal.classList.remove('hidden');\
+    \}\
+\
+    function closeManageClassesModal() \{\
+        manageClassesModal.classList.add('hidden');\
+    \}\
+\
+    // --- CSV 
+\f1 \'b6\'d7\'a4\'4a\'bb\'50\'b3\'42\'b2\'7a
+\f0  ---\
+    function importCSV() \{\
+        const file = csvFileInput.files[0];\
+        const className = classNameInput.value.trim();\
+\
+        if (!file) \{ showAlert('
+\f1 \'bd\'d0\'bf\'ef\'be\'dc
+\f0  CSV 
+\f1 \'c0\'c9\'ae\'d7\'a1\'43
+\f0 ', 'error'); return; \}\
+        if (!className) \{ showAlert('
+\f1 \'bd\'d0\'bf\'e9\'a4\'4a\'af\'5a\'af\'c5\'a6\'57\'ba\'d9\'a1\'43
+\f0 ', 'error'); return; \}\
+        if (classData.hasOwnProperty(className)) \{\
+            if (!confirm(`
+\f1 \'af\'5a\'af\'c5
+\f0  "$\{className\}" 
+\f1 \'a4\'77\'a6\'73\'a6\'62\'a1\'43\'ad\'6e\'c2\'d0\'bb\'5c\'b2\'7b\'a6\'b3\'b8\'ea\'ae\'c6\'b6\'dc\'a1\'48
+\f0 `)) return;\
+        \}\
+\
+        const reader = new FileReader();\
+        reader.onload = function(e) \{\
+            try \{\
+                const csvData = e.target.result;\
+                processCSVData(csvData, className);\
+                closeImportModal();\
+                updateClassButtons();\
+                if (currentClass === className) \{\
+                    updateStudentSearchDropdowns();\
+                \}\
+                showAlert(`$\{className\} 
+\f1 \'b8\'ea\'ae\'c6\'b6\'d7\'a4\'4a\'a6\'a8\'a5\'5c\'a1\'49
+\f0 `, 'success');\
+            \} catch (error) \{\
+                console.error("CSV 
+\f1 \'b6\'d7\'a4\'4a\'bf\'f9\'bb\'7e
+\f0 :", error);\
+                showAlert(`
+\f1 \'b6\'d7\'a4\'4a\'a5\'a2\'b1\'d1\'a1\'47
+\f0 $\{error.message\}`, 'error');\
+            \}\
+        \};\
+        reader.onerror = function() \{\
+            console.error("FileReader 
+\f1 \'bf\'f9\'bb\'7e
+\f0 :", reader.error);\
+            showAlert('
+\f1 \'c5\'aa\'a8\'fa\'c0\'c9\'ae\'d7\'a5\'a2\'b1\'d1\'a1\'43
+\f0 ', 'error');\
+        \};\
+        reader.readAsText(file);\
+    \}\
+\
+    function processCSVData(csvText, className) \{\
+        const lines = csvText.split(/\\r\\n|\\n/).filter(line => line.trim());\
+        if (lines.length < 2) throw new Error("CSV 
+\f1 \'c0\'c9\'ae\'d7\'a6\'dc\'a4\'d6\'bb\'dd\'ad\'6e\'a5\'5d\'a7\'74\'bc\'d0\'c0\'59\'a9\'4d\'a4\'40\'a6\'e6\'b8\'ea\'ae\'c6\'a1\'43
+\f0 ");\
+\
+        const headers = parseCSVLine(lines[0]);\
+        // 
+\f1 \'c0\'cb\'ac\'64
+\f0  CSV 
+\f1 \'bc\'d0\'c0\'59\'ac\'4f\'a7\'5f\'a5\'5d\'a7\'74
+\f0  Email\
+        if (!headers.map(h => h.trim().toLowerCase()).includes('email')) \{\
+            throw new Error("CSV 
+\f1 \'c0\'c9\'ae\'d7\'a4\'a4\'af\'ca\'a4\'d6
+\f0  'Email' 
+\f1 \'c4\'e6\'a6\'ec\'a1\'43\'bd\'d0\'bd\'54\'bb\'7b\'b1\'7a\'aa\'ba
+\f0  CSV 
+\f1 \'c0\'c9\'ae\'d7\'a5\'5d\'a7\'74\'a6\'b9\'c4\'e6\'a6\'ec\'a1\'43
+\f0 ");\
+        \}\
+\
+        const students = [];\
+        for (let i = 1; i < lines.length; i++) \{\
+            const values = parseCSVLine(lines[i]);\
+            if (values.length === headers.length) \{\
+                const student = \{\};\
+                headers.forEach((header, index) => \{\
+                    const cleanHeader = header.trim();\
+                    const value = values[index] ? values[index].trim() : '';\
+                    switch(cleanHeader.toLowerCase()) \{ // 
+\f1 \'a8\'cf\'a5\'ce
+\f0  toLowerCase() 
+\f1 \'a8\'cf\'bc\'d0\'c0\'59\'a4\'f1\'b9\'ef\'a4\'a3\'b0\'cf\'a4\'c0\'a4\'6a\'a4\'70\'bc\'67
+\f0 \
+                        case '
+\f1 \'ae\'79\'b8\'b9
+\f0 ': student.seatNumber = value; break;\
+                        case '
+\f1 \'a9\'6d\'a6\'57
+\f0 ': student.name = value; break;\
+                        case '
+\f1 \'be\'c7\'b8\'b9
+\f0 ': student.id = value; break;\
+                        case 'email': student.email = value; break; // 
+\f1 \'b3\'42\'b2\'7a
+\f0  Email 
+\f1 \'c4\'e6\'a6\'ec
+\f0 \
+                        case '
+\f1 \'bc\'c6\'be\'c7
+\f0 \uc0\u8563 ': student.math4 = value; break;\
+                        case '
+\f1 \'a6\'61\'b2\'7a
+\f0 ': student.geography = value; break;\
+                        case '
+\f1 \'c0\'b3\'a5\'ce\'a4\'4f\'be\'c7
+\f0 ': student.appliedMechanics = value; break;\
+                        case '
+\f1 \'b0\'ea\'bb\'79\'a4\'e5
+\f0 \uc0\u8563 ': student.chinese4 = value; break;\
+                        case '
+\f1 \'ad\'5e\'bb\'79\'a4\'e5
+\f0 \uc0\u8563 ': student.english4 = value; break;\
+                        case '
+\f1 \'ae\'e3\'aa\'6f\'a4\'de\'c0\'ba\'ad\'ec\'b2\'7a
+\f0 ': student.dieselEnginePrinciples = value; break;\
+                        case '
+\f1 \'af\'5a\'b1\'c6\'a6\'57
+\f0 ': student.classRank = value; break;\
+                        case '
+\f1 \'ac\'ec\'b2\'d5\'b1\'c6\'a6\'57
+\f0 ': student.departmentGroupRank = value; break;\
+                        case '
+\f1 \'ac\'ec\'a6\'7e\'b1\'c6\'a6\'57
+\f0 ': student.departmentYearRank = value; break;\
+                        case '
+\f1 \'a4\'40\'af\'eb\'c1\'60\'a4\'c0
+\f0 ': student.generalTotalScore = value; break;\
+                        case '
+\f1 \'a4\'40\'af\'eb\'a5\'ad\'a7\'a1
+\f0 ': student.generalAverageScore = value; break;\
+                        case '
+\f1 \'a5\'5b\'c5\'76\'c1\'60\'a4\'c0
+\f0 ': student.weightedTotalScore = value; break;\
+                        case '
+\f1 \'a5\'5b\'c5\'76\'a5\'ad\'a7\'a1
+\f0 ': student.weightedAverageScore = value; break;\
+                        default: break;\
+                    \}\
+                \});\
+                if (student.id && student.name && student.seatNumber && student.email) \{ // 
+\f1 \'bd\'54\'ab\'4f
+\f0  Email 
+\f1 \'a4\'5d\'a6\'73\'a6\'62
+\f0 \
+                    students.push(student);\
+                \} else \{\
+                    console.warn("
+\f1 \'a6\'5d\'af\'ca\'a4\'d6\'ae\'79\'b8\'b9\'a1\'42\'be\'c7\'b8\'b9\'a1\'42\'a9\'6d\'a6\'57\'a9\'ce
+\f0  Email 
+\f1 \'a6\'d3\'b8\'f5\'b9\'4c\'a6\'b9\'be\'c7\'a5\'cd\'b8\'ea\'ae\'c6
+\f0 :", student, "
+\f1 \'a9\'f3\'b2\'c4
+\f0 ", i + 1, "
+\f1 \'a6\'e6
+\f0 ");\
+                \}\
+            \} else \{\
+                 console.warn(`
+\f1 \'a6\'5d\'c4\'e6\'a6\'ec\'bc\'c6\'a4\'a3\'b2\'c5\'a6\'d3\'b8\'f5\'b9\'4c\'b2\'c4
+\f0  $\{i+1\} 
+\f1 \'a6\'e6\'a1\'43\'b9\'77\'b4\'c1
+\f0  $\{headers.length\} 
+\f1 \'ad\'d3\'c4\'e6\'a6\'ec\'a1\'41\'b9\'ea\'bb\'da\'ac\'b0
+\f0  $\{values.length\}
+\f1 \'a1\'43\'b8\'d3\'a6\'e6\'a4\'ba\'ae\'65
+\f0 : "$\{lines[i]\}"`);\
+            \}\
+        \}\
+        if (students.length === 0 && lines.length > 1) \{\
+            throw new Error("CSV 
+\f1 \'c0\'c9\'ae\'d7\'a4\'a4\'a5\'bc\'a7\'e4\'a8\'ec\'a6\'b3\'ae\'c4\'aa\'ba\'be\'c7\'a5\'cd\'b8\'ea\'ae\'c6\'a1\'43\'bd\'d0\'c0\'cb\'ac\'64\'c4\'e6\'a6\'ec\'a6\'57\'ba\'d9\'a9\'4d\'b8\'ea\'ae\'c6\'ae\'e6\'a6\'a1\'a1\'43
+\f0 ");\
+        \}\
+        classData[className] = students;\
+        if (Object.keys(classData).length === 1 && !currentClass) \{\
+            selectClass(className);\
+        \} else if (!currentClass && Object.keys(classData).length > 0) \{\
+            selectClass(Object.keys(classData)[0]);\
+        \}\
+        saveClassDataToLocalStorage();\
+    \}\
+\
+    function parseCSVLine(line) \{\
+        const result = [];\
+        let startPos = 0;\
+        let inQuotes = false;\
+        for (let i = 0; i < line.length; i++) \{\
+            if (line[i] === '"') \{\
+                if (inQuotes && i + 1 < line.length && line[i+1] === '"') \{\
+                    i++;\
+                \} else \{\
+                    inQuotes = !inQuotes;\
+                \}\
+            \} else if (line[i] === ',' && !inQuotes) \{\
+                let field = line.substring(startPos, i);\
+                if (field.startsWith('"') && field.endsWith('"')) \{\
+                    field = field.substring(1, field.length - 1);\
+                \}\
+                result.push(field.replace(/""/g, '"'));\
+                startPos = i + 1;\
+            \}\
+        \}\
+        let lastField = line.substring(startPos);\
+        if (lastField.startsWith('"') && lastField.endsWith('"')) \{\
+            lastField = lastField.substring(1, lastField.length - 1);\
+        \}\
+        result.push(lastField.replace(/""/g, '"'));\
+        return result;\
+    \}\
+\
+    // --- UI 
+\f1 \'a7\'f3\'b7\'73\'a1\'47\'af\'5a\'af\'c5\'bb\'50\'be\'c7\'a5\'cd\'ac\'64\'b8\'df\'a4\'55\'a9\'d4\'bf\'ef\'b3\'e6
+\f0  ---\
+    function updateClassButtons() \{\
+        classButtons.innerHTML = '';\
+        const classNames = Object.keys(classData);\
+        if (classNames.length === 0) \{\
+            const message = document.createElement('p');\
+            message.className = 'text-gray-500 text-sm';\
+            message.textContent = '
+\f1 \'a9\'7c\'a5\'bc\'b6\'d7\'a4\'4a\'a5\'f4\'a6\'f3\'af\'5a\'af\'c5\'b8\'ea\'ae\'c6\'a1\'41\'bd\'d0\'c2\'49\'c0\'bb\'a1\'75\'b6\'d7\'a4\'4a\'b7\'73\'af\'5a\'af\'c5\'b8\'ea\'ae\'c6\'a1\'76\'ab\'f6\'b6\'73\'a1\'43
+\f0 ';\
+            classButtons.appendChild(message);\
+            updateStudentSearchDropdowns();\
+            return;\
+        \}\
+        classNames.forEach(className => \{\
+            const button = document.createElement('button');\
+            button.type = 'button';\
+            button.className = `class-badge px-4 py-2 rounded-full text-sm font-medium transition-colors duration-150 ease-in-out $\{currentClass === className ? 'bg-indigo-600 text-white border border-transparent active' : 'bg-gray-100 text-gray-800 border border-gray-200 hover:bg-indigo-100 hover:text-indigo-800'\}`;\
+            button.textContent = className;\
+            button.onclick = () => selectClass(className);\
+            classButtons.appendChild(button);\
+        \});\
+    \}\
+\
+    function selectClass(className) \{\
+        currentClass = className;\
+        saveClassDataToLocalStorage();\
+        document.querySelectorAll('#classButtons .class-badge').forEach(badge => \{\
+            badge.classList.toggle('bg-indigo-600', badge.textContent === className);\
+            badge.classList.toggle('text-white', badge.textContent === className);\
+            badge.classList.toggle('border-transparent', badge.textContent === className);\
+            badge.classList.toggle('active', badge.textContent === className);\
+            badge.classList.toggle('bg-gray-100', badge.textContent !== className);\
+            badge.classList.toggle('text-gray-800', badge.textContent !== className);\
+            badge.classList.toggle('border-gray-200', badge.textContent !== className);\
+            badge.classList.toggle('hover:bg-indigo-100', badge.textContent !== className);\
+            badge.classList.toggle('hover:text-indigo-800', badge.textContent !== className);\
+        \});\
+        resultsSection.classList.add('hidden');\
+        noResultsMessage.classList.add('hidden');\
+        resultsTableHeader.innerHTML = '';\
+        resultsTableBody.innerHTML = '';\
+        studentEmailInput.value = ''; // 
+\f1 \'b2\'4d\'b0\'a3
+\f0  Email 
+\f1 \'bf\'e9\'a4\'4a\'c4\'e6\'a6\'ec
+\f0 \
+        emailError.classList.add('hidden'); // 
+\f1 \'c1\'f4\'c2\'c3
+\f0  Email 
+\f1 \'bf\'f9\'bb\'7e\'b0\'54\'ae\'a7
+\f0 \
+        updateStudentSearchDropdowns();\
+    \}\
+\
+    function updateStudentSearchDropdowns() \{\
+        studentIdDropdown.innerHTML = '';\
+        studentNameDropdown.innerHTML = '';\
+        studentEmailInput.value = ''; // 
+\f1 \'b2\'4d\'b0\'a3
+\f0  Email 
+\f1 \'bf\'e9\'a4\'4a
+\f0 \
+        emailError.classList.add('hidden'); // 
+\f1 \'c1\'f4\'c2\'c3
+\f0  Email 
+\f1 \'bf\'f9\'bb\'7e
+\f0 \
+\
+        const defaultIdOption = document.createElement('option');\
+        defaultIdOption.value = "";\
+        defaultIdOption.textContent = "
+\f1 \'bd\'d0\'bf\'ef\'be\'dc\'be\'c7\'b8\'b9
+\f0 ";\
+        studentIdDropdown.appendChild(defaultIdOption);\
+        const defaultNameOption = document.createElement('option');\
+        defaultNameOption.value = "";\
+        defaultNameOption.textContent = "
+\f1 \'bd\'d0\'bf\'ef\'be\'dc\'a9\'6d\'a6\'57
+\f0 ";\
+        studentNameDropdown.appendChild(defaultNameOption);\
+\
+        if (currentClass && classData[currentClass]) \{\
+            const studentsInClass = classData[currentClass];\
+            studentsInClass.sort((a, b) => \{\
+                const seatA = parseInt(a.seatNumber, 10);\
+                const seatB = parseInt(b.seatNumber, 10);\
+                if (!isNaN(seatA) && !isNaN(seatB)) \{\
+                    if (seatA < seatB) return -1;\
+                    if (seatA > seatB) return 1;\
+                \}\
+                if (a.id < b.id) return -1;\
+                if (a.id > b.id) return 1;\
+                return 0;\
+            \});\
+\
+            studentsInClass.forEach(student => \{\
+                if (student.id) \{\
+                    const optionId = document.createElement('option');\
+                    optionId.value = student.id;\
+                    optionId.textContent = `$\{student.seatNumber || '
+\f1 \'b5\'4c\'ae\'79\'b8\'b9
+\f0 '\} - $\{student.id\}`;\
+                    studentIdDropdown.appendChild(optionId);\
+                \}\
+                if (student.name) \{\
+                    const optionName = document.createElement('option');\
+                    optionName.value = student.name; // 
+\f1 \'a9\'6d\'a6\'57\'a4\'55\'a9\'d4\'bf\'ef\'b3\'e6\'aa\'ba\'ad\'c8\'aa\'bd\'b1\'b5\'ac\'4f\'a9\'6d\'a6\'57
+\f0 \
+                    optionName.textContent = `$\{student.seatNumber || '
+\f1 \'b5\'4c\'ae\'79\'b8\'b9
+\f0 '\} - $\{student.name\} ($\{student.id\})`;\
+                    optionName.dataset.studentId = student.id; // 
+\f1 \'b1\'4e\'be\'c7\'b8\'b9\'a6\'73\'a6\'62
+\f0  dataset 
+\f1 \'a4\'a4\'a5\'ce\'a9\'f3\'a6\'50\'a8\'42
+\f0 \
+                    studentNameDropdown.appendChild(optionName);\
+                \}\
+            \});\
+        \} else \{\
+            studentIdDropdown.options[0].textContent = "
+\f1 \'bd\'d0\'a5\'fd\'bf\'ef\'be\'dc\'af\'5a\'af\'c5
+\f0 ";\
+            studentNameDropdown.options[0].textContent = "
+\f1 \'bd\'d0\'a5\'fd\'bf\'ef\'be\'dc\'af\'5a\'af\'c5
+\f0 ";\
+        \}\
+    \}\
+\
+    function syncNameToId() \{\
+        const selectedId = studentIdDropdown.value;\
+        studentEmailInput.value = ''; // 
+\f1 \'b2\'4d\'b0\'a3
+\f0  Email 
+\f1 \'bf\'e9\'a4\'4a
+\f0 \
+        emailError.classList.add('hidden'); // 
+\f1 \'c1\'f4\'c2\'c3
+\f0  Email 
+\f1 \'bf\'f9\'bb\'7e
+\f0 \
+        if (selectedId && currentClass && classData[currentClass]) \{\
+            const student = findStudentById(selectedId);\
+            if (student) \{\
+                for(let i=0; i < studentNameDropdown.options.length; i++) \{\
+                    if(studentNameDropdown.options[i].dataset.studentId === student.id) \{\
+                        studentNameDropdown.selectedIndex = i;\
+                        break;\
+                    \}\
+                \}\
+            \} else \{\
+                studentNameDropdown.value = "";\
+            \}\
+        \} else if (!selectedId) \{\
+             studentNameDropdown.value = "";\
+        \}\
+    \}\
+\
+    function syncIdToName() \{\
+        const selectedNameOption = studentNameDropdown.options[studentNameDropdown.selectedIndex];\
+        studentEmailInput.value = ''; // 
+\f1 \'b2\'4d\'b0\'a3
+\f0  Email 
+\f1 \'bf\'e9\'a4\'4a
+\f0 \
+        emailError.classList.add('hidden'); // 
+\f1 \'c1\'f4\'c2\'c3
+\f0  Email 
+\f1 \'bf\'f9\'bb\'7e
+\f0 \
+        if (selectedNameOption && selectedNameOption.value && currentClass && classData[currentClass]) \{\
+            const studentIdToSync = selectedNameOption.dataset.studentId;\
+            if(studentIdToSync)\{\
+                studentIdDropdown.value = studentIdToSync;\
+            \} else \{\
+                const student = findStudentByName(selectedNameOption.value);\
+                if (student) studentIdDropdown.value = student.id;\
+                else studentIdDropdown.value = "";\
+            \}\
+        \} else if (!selectedNameOption || !selectedNameOption.value) \{\
+            studentIdDropdown.value = "";\
+        \}\
+    \}\
+\
+    // --- 
+\f1 \'ba\'de\'b2\'7a\'af\'5a\'af\'c5\'a6\'43\'aa\'ed
+\f0  (
+\f1 \'bc\'75\'a5\'58\'b5\'f8\'b5\'a1\'a4\'ba
+\f0 ) ---\
+    function updateClassesList() \{\
+        classesList.innerHTML = '';\
+        const classNames = Object.keys(classData);\
+        if (classNames.length === 0) \{\
+            const messageItem = document.createElement('li');\
+            messageItem.className = 'p-3 text-center text-gray-500';\
+            messageItem.textContent = '
+\f1 \'a9\'7c\'a5\'bc\'b6\'d7\'a4\'4a\'a5\'f4\'a6\'f3\'af\'5a\'af\'c5\'b8\'ea\'ae\'c6
+\f0 ';\
+            classesList.appendChild(messageItem);\
+            return;\
+        \}\
+        classNames.forEach(className => \{\
+            const listItem = document.createElement('li');\
+            listItem.className = 'flex justify-between items-center p-3 hover:bg-gray-50';\
+            const classInfo = document.createElement('div');\
+            classInfo.innerHTML = `<p class="font-medium text-gray-800">$\{className\}</p><p class="text-sm text-gray-500">$\{classData[className] ? classData[className].length : 0\} 
+\f1 \'a6\'ec\'be\'c7\'a5\'cd
+\f0 </p>`;\
+            const deleteButton = document.createElement('button');\
+            deleteButton.type = 'button';\
+            deleteButton.className = 'text-red-500 hover:text-red-700 p-1 rounded-md hover:bg-red-100 transition-colors';\
+            deleteButton.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>`;\
+            deleteButton.setAttribute('aria-label', `
+\f1 \'a7\'52\'b0\'a3
+\f0  $\{className\} 
+\f1 \'af\'5a\'af\'c5
+\f0 `);\
+            deleteButton.onclick = () => deleteClass(className);\
+            listItem.appendChild(classInfo);\
+            listItem.appendChild(deleteButton);\
+            classesList.appendChild(listItem);\
+        \});\
+    \}\
+\
+    function deleteClass(className) \{\
+        if (confirm(`
+\f1 \'bd\'54\'a9\'77\'ad\'6e\'a7\'52\'b0\'a3
+\f0  $\{className\} 
+\f1 \'aa\'ba\'b8\'ea\'ae\'c6\'b6\'dc\'a1\'48\'a6\'b9\'be\'de\'a7\'40\'b5\'4c\'aa\'6b\'b4\'5f\'ad\'ec\'a1\'43
+\f0 `)) \{\
+            delete classData[className];\
+            if (currentClass === className) \{\
+                currentClass = Object.keys(classData)[0] || null;\
+                if (currentClass) selectClass(currentClass);\
+                else updateStudentSearchDropdowns();\
+            \}\
+            updateClassesList();\
+            updateClassButtons();\
+            if (!currentClass) \{\
+                resultsSection.classList.add('hidden');\
+                noResultsMessage.classList.add('hidden');\
+                resultsTableHeader.innerHTML = '';\
+                resultsTableBody.innerHTML = '';\
+            \}\
+            saveClassDataToLocalStorage();\
+            showAlert(`$\{className\} 
+\f1 \'a4\'77\'a6\'a8\'a5\'5c\'a7\'52\'b0\'a3\'a1\'43
+\f0 `, 'success');\
+        \}\
+    \}\
+\
+    // --- LocalStorage 
+\f1 \'ab\'f9\'a4\'5b\'a4\'c6\'c0\'78\'a6\'73
+\f0  ---\
+    function saveClassDataToLocalStorage() \{\
+        try \{\
+            localStorage.setItem('gradeSystemClassData_Gloria_v4', JSON.stringify(classData)); // 
+\f1 \'a7\'f3\'b7\'73
+\f0  key\
+            if (currentClass) localStorage.setItem('gradeSystemCurrentClass_Gloria_v4', currentClass);\
+            else localStorage.removeItem('gradeSystemCurrentClass_Gloria_v4');\
+        \} catch (e) \{\
+            console.error('
+\f1 \'b5\'4c\'aa\'6b\'c0\'78\'a6\'73\'b8\'ea\'ae\'c6\'a8\'ec
+\f0  localStorage:', e);\
+        \}\
+    \}\
+\
+    function loadClassDataFromLocalStorage() \{\
+        try \{\
+            const savedClassData = localStorage.getItem('gradeSystemClassData_Gloria_v4');\
+            const savedCurrentClass = localStorage.getItem('gradeSystemCurrentClass_Gloria_v4');\
+            if (savedClassData) classData = JSON.parse(savedClassData);\
+            if (savedCurrentClass && classData[savedCurrentClass]) currentClass = savedCurrentClass;\
+            else if (Object.keys(classData).length > 0) currentClass = Object.keys(classData)[0];\
+        \} catch (e) \{\
+            console.error('
+\f1 \'b5\'4c\'aa\'6b\'b1\'71
+\f0  localStorage 
+\f1 \'b8\'fc\'a4\'4a\'b8\'ea\'ae\'c6
+\f0 :', e);\
+            classData = \{\}; currentClass = null;\
+        \}\
+    \}\
+\
+    // --- 
+\f1 \'bd\'64\'a8\'d2\'b8\'ea\'ae\'c6
+\f0  ---\
+    function addSampleData() \{\
+        if (Object.keys(classData).length > 0) return;\
+        classData = \{\
+            "
+\f1 \'a4\'54\'a6\'7e\'af\'c5\'a8\'54\'a8\'ae\'ac\'ec\'a5\'d2\'af\'5a
+\f0  (
+\f1 \'bd\'64\'a8\'d2
+\f0 )": [\
+                \{ seatNumber: "1", name: "
+\f1 \'b3\'af\'a4\'6a\'a9\'fa
+\f0 ", id: "S001", email: "chen.daming@example.com", math4: "85", geography: "78", appliedMechanics: "92", chinese4: "88", english4: "75", dieselEnginePrinciples: "88", classRank: "3", departmentGroupRank: "5", departmentYearRank: "10", generalTotalScore: "594", generalAverageScore: "84.86", weightedAverageScore: "86.43", weightedTotalScore: "605.01"  \},\
+                \{ seatNumber: "2", name: "
+\f1 \'aa\'4c\'a4\'70\'b5\'d8
+\f0 ", id: "S002", email: "lin.xiaohua@example.com", math4: "76", geography: "82", appliedMechanics: "80", chinese4: "90", english4: "81", dieselEnginePrinciples: "76", classRank: "10", departmentGroupRank: "15", departmentYearRank: "25", generalTotalScore: "562", generalAverageScore: "80.29", weightedAverageScore: "81.43", weightedTotalScore: "570.01" \}\
+            ],\
+             "
+\f1 \'a4\'47\'a6\'7e\'af\'c5\'b8\'ea\'b0\'54\'ac\'ec\'a4\'41\'af\'5a
+\f0  (
+\f1 \'bd\'64\'a8\'d2
+\f0 )": [\
+                \{ seatNumber: "1", name: "
+\f1 \'b6\'c0\'ac\'fc\'ac\'c2
+\f0 ", id: "S101", email: "huang.meiling@example.com", math4: "92", geography: "88", appliedMechanics: "N/A", chinese4: "85", english4: "90", dieselEnginePrinciples: "N/A", classRank: "1", departmentGroupRank: "2", departmentYearRank: "3", generalTotalScore: "N/A", generalAverageScore: "88.75", weightedAverageScore: "89.50", weightedTotalScore: "N/A" \}\
+            ]\
+        \};\
+        if (!currentClass) currentClass = "
+\f1 \'a4\'54\'a6\'7e\'af\'c5\'a8\'54\'a8\'ae\'ac\'ec\'a5\'d2\'af\'5a
+\f0  (
+\f1 \'bd\'64\'a8\'d2
+\f0 )";\
+        saveClassDataToLocalStorage();\
+    \}\
+\
+    // --- 
+\f1 \'aa\'ec\'a9\'6c\'a4\'c6
+\f0  ---\
+    function init() \{\
+        loadClassDataFromLocalStorage();\
+        if (Object.keys(classData).length === 0) \{\
+            addSampleData();\
+        \}\
+        updateClassButtons();\
+        if (currentClass && classData[currentClass]) \{\
+            selectClass(currentClass);\
+        \} else if (Object.keys(classData).length > 0) \{\
+             selectClass(Object.keys(classData)[0]);\
+        \} else \{\
+            updateStudentSearchDropdowns();\
+        \}\
+    \}\
+\
+    document.addEventListener('DOMContentLoaded', init);\
+    </script>\
+</body>\
+</html>\
+}
